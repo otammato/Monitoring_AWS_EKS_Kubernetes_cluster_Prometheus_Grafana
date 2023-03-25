@@ -165,4 +165,47 @@ Password is EKS!sAWSome as set up while creating Grafana
 <img width="1341" alt="Screenshot 2023-03-25 at 11 29 32" src="https://user-images.githubusercontent.com/104728608/227745759-45ce96ff-5b55-48cb-a278-5f0fffb53bac.png">
 
 ## Deploy a Node.js application and monitor it on Grafana
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-todo-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-todo-app
+  template:
+    metadata:
+      labels:
+        app: node-todo-app
+    spec:
+      containers:
+        - name: node-todo-app
+          image: sunitabachhav2007/node-todo-test:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: PORT
+              value: "8000"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-todo-app
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8000
+  selector:
+    app: node-todo-app
+```
+
+```
+kubectl apply -f deployment.yml
+kubectl get deployment
+kubectl get pods
+```
 ## Clean Up
