@@ -21,15 +21,28 @@
 
 ## Setup an AWS EC2 Instance
 
+
+
+## Install AWS CLI and Configure
+
 ```
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" 
 sudo apt install unzip
 unzip awscliv2.zip 
 sudo ./aws/install
 ```
-
-## Install AWS CLI and Configure
+```
+aws configure
+```
 ## Install and Setup Kubectl
+
+```
+curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin
+kubectl version
+```
+
 ## Install and Setup eksctl
 ## Install Helm chart
 ## Creating an Amazon EKS cluster using eksctl
