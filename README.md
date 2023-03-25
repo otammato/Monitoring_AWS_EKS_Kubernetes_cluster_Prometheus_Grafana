@@ -160,8 +160,9 @@ Password is EKS!sAWSome as set up while creating Grafana
 <img width="807" alt="Screenshot 2023-03-25 at 22 40 41" src="https://user-images.githubusercontent.com/104728608/227745689-cf86a593-92ac-478c-a7e2-ef2a353c0a65.png">
 
 ## Import Grafana dashboard from Grafana Labs
+<img width="1319" alt="Screenshot 2023-03-25 at 11 28 17" src="https://user-images.githubusercontent.com/104728608/227745755-fe133899-a36b-443a-9376-c6590d06c48a.png">
+<img width="1104" alt="Screenshot 2023-03-25 at 11 29 06" src="https://user-images.githubusercontent.com/104728608/227745757-ce7d70fc-5e09-4949-b065-eea8f794a96e.png">
+<img width="1341" alt="Screenshot 2023-03-25 at 11 29 32" src="https://user-images.githubusercontent.com/104728608/227745759-45ce96ff-5b55-48cb-a278-5f0fffb53bac.png">
 
-```
-```
 ## Deploy a Node.js application and monitor it on Grafana
 ## Clean Up
