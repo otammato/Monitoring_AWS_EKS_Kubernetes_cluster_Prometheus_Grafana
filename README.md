@@ -19,4 +19,16 @@
 <img width="700" alt="Screenshot 2023-03-25 at 12 05 37" src="https://user-images.githubusercontent.com/104728608/227744097-ec3e2bfe-c8ea-4456-945e-c449bbd85c4a.png">
 
 
-## Set up
+## Setup an AWS EC2 Instance
+## Install AWS CLI and Configure
+## Install and Setup Kubectl
+## Install and Setup eksctl
+## Install Helm chart
+## Creating an Amazon EKS cluster using eksctl
+## Installing the Kubernetes Metrics Server
+## Install Prometheus
+## Create IAM OIDC Provider
+## Install Grafana
+## Import Grafana dashboard from Grafana Labs
+## Deploy a Node.js application and monitor it on Grafana
+## Clean Up
