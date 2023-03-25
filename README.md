@@ -64,11 +64,104 @@ $ ./get_helm.sh
 ```
 eksctl create cluster --name eks2 --version 1.24 --region us-east-1 --nodegroup-name worker-nodes --node-type t2.large --nodes 2 --nodes-min 2 --nodes-max 3
 
+aws eks update-kubeconfig --name eks2 # verify cluster is instaled
+
 ```
 ## Installing the Kubernetes Metrics Server
+
+```
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+kubectl get deployment metrics-server -n kube-system # verify
+
+```
 ## Install Prometheus
+
+```
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
+helm repo update
+
+helm repo list
+
+kubectl create namespace prometheus
+
+```
+```
+helm install prometheus prometheus-community/prometheus \
+    --namespace prometheus \
+    --set alertmanager.persistentVolume.storageClass="gp2" \
+    --set server.persistentVolume.storageClass="gp2"
+```
+
 ## Create IAM OIDC Provider
+
+```
+oidc_id=$(aws eks describe-cluster --name eks2 --query "cluster.identity.oidc.issuer" --output text | cut -d '/' -f 5)
+aws iam list-open-id-connect-providers | grep $oidc_id | cut -d "/" -f4
+
+eksctl utils associate-iam-oidc-provider --cluster eks2 --approve
+```
+```
+eksctl create iamserviceaccount \
+  --name ebs-csi-controller-sa \
+  --namespace kube-system \
+  --cluster eks2 \
+  --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
+  --approve \
+  --role-only \
+  --role-name AmazonEKS_EBS_CSI_DriverRole
+```
+```
+eksctl create addon --name aws-ebs-csi-driver --cluster eks2 --service-account-role-arn arn:aws:iam::xxxxxxxxx:role/AmazonEKS_EBS_CSI_DriverRole --force
+
+```
+```
+curl localhost:9090/graph # check the prometheus was launched
+
+```
 ## Install Grafana
+
+```
+helm repo add grafana https://grafana.github.io/helm-charts 
+helm repo update
+```
+```
+vi prometheus-datasource.yaml
+```
+```
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+    - name: Prometheus
+      type: prometheus
+      url: http://prometheus-server.prometheus.svc.cluster.local
+      access: proxy
+      isDefault: true
+```
+```
+kubectl create namespace grafana
+```
+```
+helm install grafana grafana/grafana \
+    --namespace grafana \
+    --set persistence.storageClassName="gp2" \
+    --set persistence.enabled=true \
+    --set adminPassword='EKS!sAWSome' \
+    --values prometheus-datasource.yaml \
+    --set service.type=LoadBalancer
+```
+
+Copy External IP address and open it in the browser -
+
+Password is EKS!sAWSome as set up while creating Grafana
+
+https://cdn.hashnode.com/res/hashnode/image/upload/v1679475802169/fab723e5-6e22-4759-9b1a-f946e137ccbd.png?auto=compress,format&format=webp![image](https://user-images.githubusercontent.com/104728608/227745580-75403b00-6ec1-4439-ade8-6878152fb331.png)
+
 ## Import Grafana dashboard from Grafana Labs
+
+```
+```
 ## Deploy a Node.js application and monitor it on Grafana
 ## Clean Up
