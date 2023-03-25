@@ -214,6 +214,8 @@ kubectl get pods
 
 <img width="700" alt="Screenshot 2023-03-25 at 22 56 24" src="https://user-images.githubusercontent.com/104728608/227746236-4a245e5a-f02b-45e3-9ec7-fd954891e5f3.png">
 
+<img width="700" alt="Screenshot 2023-03-25 at 23 00 20" src="https://user-images.githubusercontent.com/104728608/227746368-5a45d4b5-638f-4131-8427-3114f56018c7.png">
+
 ## Clean Up
 
 ```
