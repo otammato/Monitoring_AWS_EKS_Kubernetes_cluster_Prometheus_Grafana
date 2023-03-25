@@ -157,7 +157,7 @@ Copy External IP address and open it in the browser -
 
 Password is EKS!sAWSome as set up while creating Grafana
 
-<img width="810" alt="Screenshot 2023-03-25 at 22 39 33" src="https://user-images.githubusercontent.com/104728608/227745655-bf1325b0-ce5f-4508-9f93-9fc936d52225.png">
+<img width="807" alt="Screenshot 2023-03-25 at 22 40 41" src="https://user-images.githubusercontent.com/104728608/227745689-cf86a593-92ac-478c-a7e2-ef2a353c0a65.png">
 
 ## Import Grafana dashboard from Grafana Labs
 
