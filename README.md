@@ -44,8 +44,27 @@ kubectl version
 ```
 
 ## Install and Setup eksctl
+
+```
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+
+sudo mv /tmp/eksctl /usr/local/bin
+
+eksctl version
+```
 ## Install Helm chart
+
+```
+$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+$ chmod 700 get_helm.sh
+$ ./get_helm.sh
+```
 ## Creating an Amazon EKS cluster using eksctl
+
+```
+eksctl create cluster --name eks2 --version 1.24 --region us-east-1 --nodegroup-name worker-nodes --node-type t2.large --nodes 2 --nodes-min 2 --nodes-max 3
+
+```
 ## Installing the Kubernetes Metrics Server
 ## Install Prometheus
 ## Create IAM OIDC Provider
