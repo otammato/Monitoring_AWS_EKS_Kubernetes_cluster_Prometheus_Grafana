@@ -167,6 +167,9 @@ Password is EKS!sAWSome as set up while creating Grafana
 ## Deploy a Node.js application and monitor it on Grafana
 
 ```
+vi deployment.yml
+```
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
