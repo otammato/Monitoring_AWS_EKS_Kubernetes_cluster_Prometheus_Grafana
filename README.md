@@ -33,6 +33,8 @@ sudo ./aws/install
 ```
 aws configure
 ```
+<img width="700" alt="Screenshot 2023-03-26 at 12 04 45" src="https://user-images.githubusercontent.com/104728608/227771572-064de851-59ec-48ae-88e7-b217f42208ae.png">
+
 ## Install and Setup Kubectl
 
 ```
