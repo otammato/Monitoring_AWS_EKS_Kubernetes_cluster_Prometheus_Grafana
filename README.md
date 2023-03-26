@@ -1,6 +1,5 @@
 # Monitoring_AWS_EKS_with_Prometheus_Grafana
 
-
 <img width="700" alt="Screenshot 2023-03-25 at 22 14 36" src="https://user-images.githubusercontent.com/104728608/227744857-0be2db6f-e4df-411d-8ba8-26b1dfa1dfcf.png">
 
 ---
@@ -19,9 +18,9 @@
 <img width="700" alt="Screenshot 2023-03-25 at 12 05 37" src="https://user-images.githubusercontent.com/104728608/227744097-ec3e2bfe-c8ea-4456-945e-c449bbd85c4a.png">
 
 
-## Setup an AWS EC2 Instance
+## Setup an AWS EC2 master Instance
 
-
+<img width="700" alt="Screenshot 2023-03-26 at 11 57 39" src="https://user-images.githubusercontent.com/104728608/227771193-bb159dc6-7d5b-4c96-b37f-4e40dcc1b157.png">
 
 ## Install AWS CLI and Configure
 
